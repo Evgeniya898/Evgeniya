@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+
+double A(int n)
+{
+	if (n <= 0) exit(-1);
+	double result = 2.;
+	for (int i = 2; i <= n; i++)
+		result = 2. + 1. / result;
+
+	return result;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	int i;
+	double D, N = 0.5;
+	std::cout << "¬ведите число D (D > 0): "; std::cin >> D;
+	for (i = 3; D <= N; i++)
+		N = fabs(A(i) - A(i - 1));
+	std::cout << "K = " << i << std::endl;
+	std::cout << "A(K-1) = " << A(i - 1) << std::endl;
+	std::cout << "A(K) = " << A(i) << std::endl;
+	system("pause");
+	return 0;
+}
